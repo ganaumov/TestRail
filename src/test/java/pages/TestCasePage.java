@@ -1,59 +1,60 @@
 package pages;
 
-import org.openqa.selenium.WebElement;
-
-import java.util.List;
+import io.qameta.allure.Step;
+import lombok.extern.log4j.Log4j2;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
 
-public class TestCasePage {
+@Log4j2
+public class TestCasePage extends BasePage {
 
-    private static final String TEST_CASES = "navigation-suites-dropdown";
-    private static final String TITLE = "title";
-    private static final String PRECONDITIONS = "custom_preconds_display";
-    private static final String EXPECTED_RESULTS = "custom_expected_display";
-    private static final String STEPS = "custom_steps_display";
+    private static final String TEST_CASES = "navigation-suites-dropdown",
+            PRECONDITIONS = "custom_preconds_display",
+            EXPECTED_RESULTS = "custom_expected_display",
+            STEPS = "custom_steps_display",
+            ADD_TESTCASE = "//*[@id='inlineSectionActions-2950']/a[1]",
+            TESTCASE_TITLE = "addCaseTitle",
+            ACCEPT_BUTTON = "//*[@data-testid='iconButtonAccept']",
+            ACCEPT = "accept",
+            TEST_CASE_EDIT_BUTTON = "//*[@data-testid='testCaseEditButton']",
+            CASE_NAME = "NameOfCase";
 
-    public void openProject() {
-        String fullUrl = $(byXpath("//a[contains(text(),'Test project')]")).getAttribute("href");
-        open(fullUrl);
+    @Step("Открытие страницы с проектами")
+    public void openProjectPage() {
+        log.info("Open project page");
+        openProject();
     }
 
+    @Step("Открытите страницы тест кейсов")
     public void openTestCases() {
+        log.info("Open test case");
         $(byId(TEST_CASES)).click();
     }
 
+    @Step("Клик по кнопке добавления тест кейса")
     public void addTestCaseClick(String title) {
-        $(byXpath("//*[@id='inlineSectionActions-2950']/a[1]")).click();
-        $(byId("addCaseTitle")).setValue(title);
-        $(byXpath("//*[@data-testid='iconButtonAccept']")).click();
+        log.info("Click on AddTestCase button");
+        $(byXpath(ADD_TESTCASE)).click();
+        $(byId(TESTCASE_TITLE)).setValue(title);
+        $(byXpath(ACCEPT_BUTTON)).click();
     }
 
+    @Step("Заполнение обязательных полей: precondition, steps, expected")
     public void writeDescription(String precondition, String steps, String expected) {
-
-        $(byText("NameOfCase")).click();
-        $(byXpath("//*[@data-testid='testCaseEditButton']")).click();
+        log.info("Create Description for TestCase");
+        $(byText(CASE_NAME)).click();
+        $(byXpath(TEST_CASE_EDIT_BUTTON)).click();
         $(byId(PRECONDITIONS)).click();
         $(byId(PRECONDITIONS)).setValue(precondition);
         $(byId(STEPS)).setValue(steps);
         $(byId(EXPECTED_RESULTS)).setValue(expected);
     }
 
+    @Step("Клик по кнопке, подстверждающей создание тест кейса")
     public void createTestCase() {
-        $(byId("accept")).click();
+        log.info("Click on Create test case");
+        $(byId(ACCEPT)).click();
     }
-
-    public void isTestCaseCreate() {
-        $(byText("Successfully updated the test case.")).shouldBe(visible);
-    }
-
-    //public void deleteAllCases() {
-    //$(byXpath("//*[@onclick='App.Cases.onToggleAllClick(this)']")).click();
-    //$(byId("deleteCases")).click();
-    //$(byXpath("//*[@class='button button-left button-positive" +
-    //" button-no-margin-right dialog-action-secondary button-black']")).click();
-    //$(".button.dialog-action-default[data-testid='deleteCaseDialogActionDefault']").pressEnter();
-
 }

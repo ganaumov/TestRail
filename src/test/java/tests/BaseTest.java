@@ -1,8 +1,6 @@
 package tests;
 
-import com.codeborne.selenide.AssertionMode;
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.WebDriverRunner;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -10,6 +8,8 @@ import pages.LoginPage;
 import pages.ProjectsPage;
 import pages.TestCasePage;
 import pages.TestRunsPage;
+
+import static com.codeborne.selenide.Selenide.closeWebDriver;
 
 public class BaseTest {
 
@@ -43,6 +43,6 @@ public class BaseTest {
 
     @AfterMethod
     public void tearDown() {
-        WebDriverRunner.closeWebDriver();
+        closeWebDriver();
     }
 }

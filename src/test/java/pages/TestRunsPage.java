@@ -10,7 +10,7 @@ import static com.codeborne.selenide.Selenide.$;
 public class TestRunsPage extends BasePage {
 
     public static final String ADD_TEST_RUN = "//a[contains(text(),'Add Test Run')]",
-    ACCEPT = "accept";
+            ACCEPT = "accept";
 
     @Step("Добавить 'тест ран'")
     public void addTestRun() {

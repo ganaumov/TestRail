@@ -36,16 +36,16 @@ public class TestCasePage extends BasePage {
     @Step("Клик по кнопке добавления тест кейса")
     public void addTestCaseClick(String title) {
         log.info("Click on AddTestCase button");
-        $(byXpath(ADD_TESTCASE)).click();
+        $x(ADD_TESTCASE).click();
         $(byId(TESTCASE_TITLE)).setValue(title);
-        $(byXpath(ACCEPT_BUTTON)).click();
+        $x(ACCEPT_BUTTON).click();
     }
 
     @Step("Заполнение обязательных полей: precondition, steps, expected")
     public void writeDescription(String precondition, String steps, String expected) {
         log.info("Create Description for TestCase");
         $(byText(CASE_NAME)).click();
-        $(byXpath(TEST_CASE_EDIT_BUTTON)).click();
+        $x(TEST_CASE_EDIT_BUTTON).click();
         $(byId(PRECONDITIONS)).click();
         $(byId(PRECONDITIONS)).setValue(precondition);
         $(byId(STEPS)).setValue(steps);

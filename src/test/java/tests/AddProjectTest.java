@@ -6,13 +6,13 @@ import org.testng.annotations.Test;
 public class AddProjectTest extends BaseTest {
 
     @Description("Создание и удаление автозаполненного проекта-примера")
-    @Test(testName = "Создание example project")
+    @Test(testName = "Создание example project", priority = 1)
     public void addExampleProjectTest() {
         loginPage.openPage();
         loginPage.login(user, password);
         projectsPage.openPage();
         projectsPage.addExampleProjectClick();
-        projectsPage.addNameAndSubmit("Test project","");
+        projectsPage.addNameAndSubmit("Test project", "");
         projectsPage.isProjectOpen();
         projectsPage.projectsListOpen();
         projectsPage.deleteProjectButtonClick();
@@ -21,7 +21,7 @@ public class AddProjectTest extends BaseTest {
     }
 
     @Description("Создание нового проекта")
-    @Test(testName = "Создание new project")
+    @Test(testName = "Создание new project", priority = 2, groups = {"smoke"})
     public void addProject() {
         loginPage.openPage();
         loginPage.login(user, password);

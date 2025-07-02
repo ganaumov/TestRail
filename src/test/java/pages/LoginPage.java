@@ -12,7 +12,7 @@ public class LoginPage extends BasePage {
 
     private static final String LOGIN_FIELD = "[name=name]",
             PASSWORD_FIELD = "[name=password]",
-            LOG_IN = "button_primary",
+            LOG_IN = "#button_primary",
             FORGOT_PASS = "loginpage-forgotpassword",
             DASHBOARD = "Dashboard",
             RESET_PASSWORD_PAGE = "Reset Your Password",
@@ -31,7 +31,7 @@ public class LoginPage extends BasePage {
         log.info("login with login and password");
         $(LOGIN_FIELD).setValue(user);
         $(PASSWORD_FIELD).setValue(password);
-        $(byId(LOG_IN)).click();
+        $(LOG_IN).click();
     }
 
     @Step("Проверка, открыта ли главная страница")

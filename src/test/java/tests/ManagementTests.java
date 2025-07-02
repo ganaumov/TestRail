@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 public class ManagementTests extends BaseTest {
 
     @Description("Тестовое создание и редактирование тест кейса")
-    @Test(description = "создание и редактирование тест-кейса")
+    @Test(description = "создание и редактирование тест-кейса", priority = 1, groups = {"smoke"})
     public void createTestCase() {
         loginPage.openPage();
         loginPage.login(user, password);
@@ -19,7 +19,7 @@ public class ManagementTests extends BaseTest {
     }
 
     @Description("Добавление testRun по выполнению тест кейсов")
-    @Test(testName = "создание test run")
+    @Test(testName = "создание test run", priority = 2, groups = {"smoke"})
     public void addTestRun() {
         loginPage.openPage();
         loginPage.login(user, password);

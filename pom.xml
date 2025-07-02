@@ -23,6 +23,7 @@
         <allure-testng.version>2.24.0</allure-testng.version>
         <allure-maven.version>2.12.0</allure-maven.version>
         <surefire.version>3.1.2</surefire.version>
+        <allure-selenide>2.29.1</allure-selenide>
     </properties>
 
     <dependencyManagement>
@@ -74,6 +75,12 @@
             <artifactId>allure-testng</artifactId>
             <version>${allure-testng.version}</version>
             <scope>test</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-selenide -->
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-selenide</artifactId>
+            <version>${allure-selenide}</version>
         </dependency>
     </dependencies>
 

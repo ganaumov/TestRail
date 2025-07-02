@@ -4,8 +4,7 @@ import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 
 import static com.codeborne.selenide.Selectors.byXpath;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 
 @Log4j2
 public class BasePage {
@@ -26,7 +25,7 @@ public class BasePage {
 
     @Step("Открытие созданного проекта")
     public void openProject() {
-        String fullUrl = $(byXpath(OPEN_PROJECT)).getAttribute("href");
+        String fullUrl = $x(OPEN_PROJECT).getAttribute("href");
         open(fullUrl);
     }
 }

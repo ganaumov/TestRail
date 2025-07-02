@@ -8,6 +8,7 @@ import java.time.Duration;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$x;
 
 @Log4j2
 public class ProjectsPage extends BasePage {
@@ -41,7 +42,7 @@ public class ProjectsPage extends BasePage {
 
     @Step("Добавление названия и описания проекта-примера")
     public void addNameAndSubmit(String name, String submit) {
-        log.info("SendKeys Name and Submit");
+        log.info("SendKeys name and submit");
         $(byId(NAME_EXAMPLE_PROJECT)).sendKeys(name);
         $(byId(SUBMIT_EXAMPLE_PROJECT)).setValue(submit);
     }
@@ -67,14 +68,14 @@ public class ProjectsPage extends BasePage {
     @Step("Клик по кнопке удаления проекта")
     public void deleteProjectButtonClick() {
         log.info("Click on 'delete project'");
-        $(byXpath(DELETE_PROJECT)).click();
+        $x(DELETE_PROJECT).click();
     }
 
     @Step("Подтверждение удаления проекта, клик")
     public void yesDeleteProjectClick() {
         log.info("Click on 'Yes delete project'");
-        $(byXpath(CONFIRM_DELETE1)).click();
-        $(byXpath(CONFIRM_DELETE2)).click();
+        $x(CONFIRM_DELETE1).click();
+        $x(CONFIRM_DELETE2).click();
     }
 
     @Step("Проверка, удален ли проект")

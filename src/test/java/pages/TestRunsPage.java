@@ -1,24 +1,21 @@
 package pages;
 
+import io.qameta.allure.Step;
+import lombok.extern.log4j.Log4j2;
+
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
 
-public class TestRunsPage {
+@Log4j2
+public class TestRunsPage extends BasePage {
 
-    public void openPage() {
-        open("https://bigcheesegana.testrail.io/index.php?/runs/overview/20");
-    }
+    public static final String ADD_TEST_RUN = "//a[contains(text(),'Add Test Run')]",
+            ACCEPT = "accept";
 
+    @Step("Добавить 'тест ран'")
     public void addTestRun() {
-        $(byXpath("//a[contains(text(),'Add Test Run')]")).click();
-        $(byId("accept")).click();
-    }
-
-    public void doTestRun() {
-        $(byXpath("//tr@class='header'//th@class='checkbox'//input")).click();
-        $("input[onclick='App.Tests.onToggleAllClick(this)']").click();
-        $(byXpath("//a[@id='massAddResult']//span[@class='button-text'][normalize-space()='Add Results']")).click();
-        $(byId("addResultSubmit")).click();
+        log.info("Add test run");
+        $(byXpath(ADD_TEST_RUN)).click();
+        $(byId(ACCEPT)).click();
     }
 }

@@ -23,7 +23,9 @@
         <allure-testng.version>2.24.0</allure-testng.version>
         <allure-maven.version>2.12.0</allure-maven.version>
         <surefire.version>3.1.2</surefire.version>
-        <allure-selenide>2.29.1</allure-selenide>
+        <allure-selenide.version>2.29.1</allure-selenide.version>
+        <rest-assured.version>5.5.5</rest-assured.version>
+        <gson.version>2.13.1</gson.version>
     </properties>
 
     <dependencyManagement>
@@ -80,7 +82,19 @@
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-selenide</artifactId>
-            <version>${allure-selenide}</version>
+            <version>${allure-selenide.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>${rest-assured.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>${gson.version}</version>
         </dependency>
     </dependencies>
 
@@ -110,5 +124,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>

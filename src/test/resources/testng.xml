@@ -11,9 +11,9 @@
         </groups>
 
         <classes>
-            <class name="tests.LoginTest"/>
-            <class name="tests.AddProjectTest"/>
-            <class name="tests.ManagementTests"/>
+            <class name="tests.ui.LoginTest"/>
+            <class name="tests.ui.AddProjectTest"/>
+            <class name="tests.ui.ManagementTests"/>
         </classes>
     </test>
 </suite>

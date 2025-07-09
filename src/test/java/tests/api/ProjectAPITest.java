@@ -4,7 +4,6 @@ import adapters.ProjectAPI;
 import models.ProjectRq;
 import org.testng.annotations.Test;
 
-
 public class ProjectAPITest {
 
     Integer project_id;

@@ -10,14 +10,14 @@ import static io.restassured.RestAssured.given;
 public class ProjectAPI {
     static Gson gson = new Gson();
 
-    static String email = System.getProperty("email", PropertyReader.getProperty("email"));
+    static String user = System.getProperty("user", PropertyReader.getProperty("user"));
     static String apiKey = System.getProperty("apiKey", PropertyReader.getProperty("apiKey"));
 
     static RequestSpecification spec = given()
             .contentType(io.restassured.http.ContentType.JSON)
             .auth()
             .preemptive()
-            .basic(email, apiKey); // Используем Basic Auth
+            .basic(user, apiKey);
 
     private static final String BASE_URL = "https://bigcheesegana.testrail.io/index.php?/api/v2";
 

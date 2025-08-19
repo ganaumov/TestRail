@@ -1,10 +1,10 @@
 # AQA Test Rail
 
 Рабочее окружение:
+- Windows 10 Pro
 - intellJIDEA
 - Selenide, testNG, Allure report, Actions
 - Google Chrome акуальной версии
-- FireFox актуальной версии
 ### Тест входа на сайт(login)
 - Негативные тесты без использования данных или с невалидными данными
 - Позитивный тест используя валидные данные
